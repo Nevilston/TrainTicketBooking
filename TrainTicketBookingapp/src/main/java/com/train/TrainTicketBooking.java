@@ -1,13 +1,12 @@
 package com.train;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class TrainTicketBooking {
 	public static void main(String[] args) {
 		System.out.println("Welcome To Train Booking");
-		loginDetails();
-		journeyDetails();
-		TrainList.listOfTrains();
+		
 	}
 
 	public static void loginDetails() {
@@ -38,12 +37,27 @@ public class TrainTicketBooking {
 		}
 	}
 	public static void trainDetails() {
-		System.out.println("Enter Boarding Station ");
-		Scanner inputBoardingPoint = new Scanner(System.in);
-		String boardingPoint = inputBoardingPoint.next();
-		System.out.println("Enter the Destination Station");
-		Scanner inputDestinationPoint = new Scanner(System.in);
-		String DestinationPoint = inputDestinationPoint.next();
+		String[] trainList = new String[3];
+		trainList[0] = "1.Madurai Express @17:30 ";
+		trainList[1] = "2.PearCity Express @19:30";
+		trainList[2] = "2.Bangalore Express @08:00";
+		System.out.println("Cab Types " + Arrays.toString(trainList));
+		for (int i = 0; i < trainList.length; i++) {
+			String cType = trainList[i];
+			System.out.println(cType);
+		}
+		
 	}
-	
+	public static void selectionOfTrains() {
+		System.out.println("Select The Train:");
+		Scanner inputSelection= new Scanner(System.in);
+		String trainOption = inputSelection.next();
+		boolean isValid = TrainList.seatOption(trainOption);
+		if(isValid==true) {
+			System.out.println("Seats Avilable in The Selected Train");
+		}
+		else {
+			selectionOfTrains();
+		}
+	}
 }

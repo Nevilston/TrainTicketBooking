@@ -2,13 +2,18 @@ package com.train;
 
 import static org.junit.Assert.*;
 
+import java.time.LocalDate;
+
 import org.junit.Test;
 
 public class JourneyValidation {
 
 	@Test
 	public void journeyDateValidationTest1() {
-		String journeydate = "2021-04-28";
+		LocalDate todayDate =  LocalDate.now();
+		LocalDate afterDate = todayDate.plusDays(1);
+		String todayStringdate=afterDate.toString(); 
+		String journeydate = (todayStringdate);
 		boolean isValidDate = JuorneyDetails.juorneyDate(journeydate);
 		assertTrue(isValidDate);
 	}
