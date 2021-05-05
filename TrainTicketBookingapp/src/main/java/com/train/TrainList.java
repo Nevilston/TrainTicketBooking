@@ -1,34 +1,31 @@
 package com.train;
+import java.util.ArrayList;
+public class TrainList {	
+		static ArrayList<TrainDetails> TrainName = new ArrayList<TrainDetails>();
 
-public class TrainList {
-
-	public static boolean seatOption(String trainOption) {
-		int option = Integer.parseInt(trainOption);
-		System.out.println(option);
-		boolean isValid = false;
-		if (option <= 10) {
-			switch (trainOption) {
-			case "1":
-				System.out.println("The Selected Train is Madurai Express @17:30");
-				isValid = true;
-				break;
-			case "2":
-				System.out.println("The Selected Train is PearCity Express @19:30");
-				isValid = true;
-				break;
-			case "3":
-				System.out.println("The Selected Train is Bangalore Express @08:00");
-				isValid = true;
-				break;
-			default:
-				System.out.println("Invalid Choise");
-			}
-		} else {
-			System.out.println("Retry");
-			isValid = false;
+		// This method used to add the train details 
+		public static void addTrainList(TrainDetails  ...trains) {
+		         for (TrainDetails trainDetails : trains) {
+		        	 TrainName.add(trainDetails);
+				}
+			
 		}
-		return isValid;
 
-	}
+		// This method used to return the list of Train
+		public static int getNoTrainsAviable() {
+			int noOfBanks = TrainName.size();
+			return noOfBanks;
+		}
 
+		// This method used to display the Trains
+		public static void displayTrainName() {
+
+			System.out.println("AVAILABLE TRAINS ");
+			for (TrainDetails trainName: TrainName) {
+				System.out.println(trainName);
+			}
+		}
+
+	
+        
 }
