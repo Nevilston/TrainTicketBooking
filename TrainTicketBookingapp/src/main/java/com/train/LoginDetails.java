@@ -1,17 +1,35 @@
 package com.train;
-public class LoginDetails{
-	public static boolean usernameVerification(long userMobileNo ,String password ) {
-		boolean isValid = false;
-		if(userMobileNo == 9566087158l) {
-		if(password.equals("Nevil1234")) {
-			isValid = true;
-		}	
-			else {
-				System.out.println("Retry again");
-				isValid = false;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class LoginDetails {
+	static ArrayList<String> usernameArray = new ArrayList<String>();
+	static ArrayList<String> passwordArray = new ArrayList<String>();
+
+
+	public static void registerUser(String username, String password) {
+		usernameArray.add(username);
+		passwordArray.add(password);
+	}
+
+	public static boolean credentialValidation(String userId, String password) {
+		boolean isValidCredentials = false;
+		try {
+			if (usernameArray.contains(userId)) {
+				if (passwordArray.contains(password)) {
+					isValidCredentials = true;
+				}
+			}
+
+		} catch (Exception e) {
+			String wrong = "Wrong Password";
+			System.out.println(wrong);
 		}
-	return isValid;		
+		return isValidCredentials;
+
 	}
-		return isValid;
-	}
+
 }

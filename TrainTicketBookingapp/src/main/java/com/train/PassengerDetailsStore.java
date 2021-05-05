@@ -1,26 +1,33 @@
 package com.train;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class PassengerDetailsStore {
-	static ArrayList<UserDetails> PassangerInformation = new ArrayList<UserDetails>();
+	static ArrayList<passangerDetails> PassangerInformation = new ArrayList<passangerDetails>();
 
-	public static void addUserDetails() {
-		UserDetails obj = new UserDetails();
-		
-		obj.passangername = "reno";
-		obj.passangerage = "20";
-		obj.passangergender = "Male"; 
-		PassangerInformation.add(obj);
-		UserDetails obj1 = new UserDetails();
-		
-		for (UserDetails userDetails : PassangerInformation) {
-			
-			if(userDetails.passangername.equalsIgnoreCase("reno")) {
-				System.out.println(userDetails.passangername+ "" +userDetails.passangerage+""+userDetails.passangergender);
-				break;
-			}
+	public static void addUserDetails(int numberOfTicketNeeded) {
+		int tickets = numberOfTicketNeeded;
+		while (tickets != 0) {
+
+			addPassangerDetails();
+			tickets--;
 		}
-
+		
+	}
+	public static void addPassangerDetails(passangerDetails  ...passanger) {
+		for (passangerDetails passangerInfo : passanger) {
+			PassangerInformation.add(passangerInfo);			
+		}
+		
+	}
+	public static void displayUserDetails() {
+			System.out.println("Passanger Entered ");
+			for (passangerDetails passangerInfo: PassangerInformation) {
+				System.out.println(passangerInfo);
+			}
 	}
 	
+}
+
+
